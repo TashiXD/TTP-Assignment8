@@ -66,16 +66,19 @@ function App() {
     <div className="App">
       <nav>
         <h1>Gif Finder</h1>
-        <Search
-          search={search}
-          setSearch={setSearch}
-          fetchSearchGifs={fetchSearchGifs}
-        />
+        <div className="search">
+          <Search
+            search={search}
+            setSearch={setSearch}
+            fetchSearchGifs={fetchSearchGifs}
+          />
+        </div>
       </nav>
       <main>
+        {console.log(gifs)}
         {!isLoading ? (
           gifs.map((gif, index) => (
-            <div key={index}>
+            <div key={index} className="card">
               <GifCard gif={gif} />
             </div>
           ))

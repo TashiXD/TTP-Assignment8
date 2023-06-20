@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
+import "./search.css";
 
-function Search({search,setSearch,fetchSearchGifs }) {
+function Search({setSearch,fetchSearchGifs }) {
     const[searchTerm, setSearchTerm] = useState("");
     //this handles and set our searchTerm whenever it is changed
     const handleSearchChange = (event)=>{
