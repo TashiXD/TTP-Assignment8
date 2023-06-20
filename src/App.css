@@ -1,0 +1,25 @@
+nav{
+  display: flex;
+}
+.search{
+  margin-left: auto;
+}
+
+.card{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.625em;
+  border:2px solid black;
+  width: 22em;
+  align-items: center;
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  background-color:blanchedalmond;
+}
+
+h1{
+  margin-left:2em;
+}

@@ -1,0 +1,21 @@
+.gif{
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+    margin-top: 0.625em;
+    margin-left:1em;
+}
+
+img{
+    width: 20em;
+    height: 20em;
+}
+
+p{
+align-items: center;
+width: 22em;
+}
+
+span{
+    font-weight: bold;
+}
