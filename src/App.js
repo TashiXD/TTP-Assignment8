@@ -75,7 +75,6 @@ function App() {
         </div>
       </nav>
       <main>
-        {console.log(gifs)}
         {!isLoading ? (
           gifs.map((gif, index) => (
             <div key={index} className="card">
