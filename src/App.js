@@ -14,9 +14,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   //fetches gifs using the trending api
-  //and sets the trendingGif and gif to the list of gifs returned
-  //using the api
-
+  //and sets gifs to the list of gifs fetched
   const fetchTrendingGifs = async () => {
     try {
       setIsLoading(true);
@@ -30,7 +28,8 @@ function App() {
     }
   };
 
-  //function that fetches gif based on what what searched
+  // Fetches gifs based on the search term
+  // If no search term is provided, fetches trending gifs
   const fetchSearchGifs = async () => {
     try {
       setIsLoading(true);
@@ -52,11 +51,13 @@ function App() {
   };
 
   useEffect(() => {
+    // Fetch trending gifs when the component mounts
     fetchTrendingGifs();
   }, []);
 
   useEffect(() => {
     if (search !== "") {
+      // Fetch search gifs when the 'search' isnt empty
       fetchSearchGifs();
     }
   }, [search]);
