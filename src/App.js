@@ -1,14 +1,18 @@
 import React from "react";
 import axios from "axios";
-import Search from "./components/Search/Search";
 import "./App.css";
 import { useState, useEffect } from "react";
+
+//importing components
+import GifCard from "./components/Gifcard/GifCard";
+import Search from "./components/Search/Search";
 
 function App() {
   const API_KEY = "qFb2hJrxjWy2Ezfe5hkxMyK3nk7nL2DR";
   const [gifs, setGifs] = useState([]);
   const [trendingGif, setTrendingGif] = useState([]);
   const [search, setSearch] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   //fetches gifs using the trending api
   //and sets the trendingGif and gif to the list of gifs returned
@@ -19,6 +23,7 @@ function App() {
         const response = await axios.get(
           `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`
         );
+        setIsLoaded(true);
         setTrendingGif(response.data.data);
         setGifs(trendingGif);
       } catch (error) {
@@ -47,9 +52,17 @@ function App() {
         <Search setSearch={setSearch} getSearchGifs={getSearchGifs} />
       </nav>
       <main>
-        <h1>{console.log("trendingGif:", trendingGif)}</h1>
-        <h1>{console.log(search)}</h1>
-        <h1>{console.log("search", gifs)}</h1>
+        {trendingGif ? (
+          gifs.map((gif) => {
+            return (
+              <div key={gif.id}>
+                <GifCard gif={gif} />
+              </div>
+            );
+          })
+        ) : (
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921%22%20decoding=%22async" />
+        )}
       </main>
     </div>
   );
